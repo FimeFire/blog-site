@@ -1,0 +1,18 @@
+.informationBlock {
+  display: flex;
+  justify-content: space-between;
+  padding: 45px 45px 0 45px;
+}
+
+.informationBlock {
+  font-family: 'Lato', sans-serif;
+  font-weight: 900;
+  font-style: normal;
+	color: #654e64;
+}
+
+footer {
+  margin-top: 20px;
+  background: #f5f5f6;
+  height: 100px;
+}

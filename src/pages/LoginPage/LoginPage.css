@@ -1,0 +1,8 @@
+.formContainer input {
+	margin-bottom: 30px;
+	height: 50px;
+}
+
+.formContainer input:first-child {
+	margin-top: 50px;
+}
