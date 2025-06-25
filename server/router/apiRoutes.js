@@ -112,6 +112,35 @@ router.delete('/posts/:id', authenticate, async (req, res) => {
   }
 });
 
+router.put('/posts/:id', authenticate, async (req, res) => {
+  const postId = Number(req.params.id);
+  const { namePost, textPost, isPublic } = req.body;
+  const userId = req.user.userId;
+
+  try {
+    const existingPost = await PostModel.findByPk(postId);
+
+    if (!existingPost) {
+      return res.status(404).json({ error: 'Post not found' });
+    }
+
+    if (existingPost.user_id !== userId) {
+      return res.status(403).json({ error: 'Access denied: not your post' });
+    }
+
+    const updatedPost = await PostModel.update(postId, {
+      name_post: namePost,
+      text_post: textPost,
+      is_public: isPublic,
+    });
+
+    res.json({ message: 'Post updated successfully', post: updatedPost });
+  } catch (err) {
+    console.error('Ошибка при обновлении поста:', err);
+    res.status(500).json({ error: 'Internal Server Error' });
+  }
+});
+
 router.get('/posts/user/:username', async (req, res) => {
   const { username } = req.params;
   try {

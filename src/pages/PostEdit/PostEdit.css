@@ -1,0 +1,11 @@
+.buttonSave {
+  border: 1px solid #a9a9a9;
+  background: #fff;
+  padding: 15px;
+  margin-right: 10px;
+  cursor: pointer;
+}
+
+.inputEdit {
+	margin-bottom: 20px;
+}

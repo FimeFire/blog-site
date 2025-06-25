@@ -1,6 +1,7 @@
 import { useState, useEffect, useRef } from 'react';
 import { useParams, useNavigate } from 'react-router-dom';
-import RichTextEditor from '../components/RichTextEditor/RichTextEditor';
+import RichTextEditor from '../../components/RichTextEditor/RichTextEditor';
+import './PostEdit.css'
 
 function PostEdit() {
   const { postId } = useParams();
@@ -66,28 +67,30 @@ function PostEdit() {
 
   return (
     <div className="container">
-      <h2>Редактировать пост</h2>
-      <form onSubmit={handleSubmit}>
-        <input
-          type="text"
-          value={formData.namePost}
-          onChange={(e) =>
-            setFormData({ ...formData, namePost: e.target.value })
-          }
-        />
-        <RichTextEditor ref={editorRef} />
-        <label>
-          Публичный:
-          <input
-            type="checkbox"
-            checked={formData.isPublic}
+      <h3 className="createH">Create Post</h3>
+      <div className="createContainer">
+        <form onSubmit={handleSubmit} className="createForm">
+          <input className='inputEdit'
+            type="text"
+            value={formData.namePost}
             onChange={(e) =>
-              setFormData({ ...formData, isPublic: e.target.checked })
+              setFormData({ ...formData, namePost: e.target.value })
             }
           />
-        </label>
-        <button type="submit">Сохранить</button>
-      </form>
+          <RichTextEditor ref={editorRef} />
+          <label className="checkboxLabel">
+            Публичный:
+            <input
+              type="checkbox"
+              checked={formData.isPublic}
+              onChange={(e) =>
+                setFormData({ ...formData, isPublic: e.target.checked })
+              }
+            />
+          </label>
+          <button className='buttonSave' type="submit">Сохранить</button>
+        </form>
+      </div>
     </div>
   );
 }

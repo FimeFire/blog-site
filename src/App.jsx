@@ -9,7 +9,8 @@ import PostDetail from './layouts/PostDetail/PostDetail';
 import LoginPage from './pages/LoginPage/LoginPage';
 import SignUpPage from './pages/SignUpPage/SignUpPage';
 import UserPage from './pages/UserPage';
-import PostEdit from './pages/PostEdit';
+import PostEdit from './pages/PostEdit/PostEdit';
+
 function App() {
   return (
     <>
